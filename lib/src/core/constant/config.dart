@@ -1,4 +1,4 @@
-import 'package:sizzle_starter/src/feature/initialization/model/environment.dart';
+import 'package:money_accountant/src/feature/initialization/model/environment.dart';
 
 /// Application configuration
 class Config {

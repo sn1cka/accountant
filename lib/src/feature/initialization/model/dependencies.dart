@@ -1,6 +1,6 @@
-import 'package:sizzle_starter/src/feature/app/logic/tracking_manager.dart';
-import 'package:sizzle_starter/src/feature/initialization/logic/composition_root.dart';
-import 'package:sizzle_starter/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:money_accountant/src/feature/app/logic/tracking_manager.dart';
+import 'package:money_accountant/src/feature/initialization/logic/composition_root.dart';
+import 'package:money_accountant/src/feature/settings/bloc/settings_bloc.dart';
 
 /// {@template dependencies}
 /// Composed dependencies from the [CompositionRoot].

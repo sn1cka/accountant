@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sizzle_starter/src/core/utils/extensions/context_extension.dart';
-import 'package:sizzle_starter/src/feature/initialization/model/dependencies.dart';
+import 'package:money_accountant/src/core/utils/extensions/context_extension.dart';
+import 'package:money_accountant/src/feature/initialization/model/dependencies.dart';
 
 /// {@template dependencies_scope}
 /// A scope that provides application dependencies.

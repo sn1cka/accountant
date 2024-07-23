@@ -1,4 +1,4 @@
-import 'package:sizzle_starter/src/feature/settings/data/text_scale_datasource.dart';
+import 'package:money_accountant/src/feature/settings/data/text_scale_datasource.dart';
 
 /// Theme repository that persists and retrieves text scale informarion
 abstract interface class TextScaleRepository {

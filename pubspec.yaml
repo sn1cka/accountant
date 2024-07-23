@@ -1,4 +1,4 @@
-name: sizzle_starter
+name: money_accountant
 description: >
   Highly scalable Flutter starter kit, designed with an optimal predefined structure  and inclusive of libraries that are widely applicable in numerous use cases. #magic___^_^___line
 # Prevent accidental publishing to pub.dev.
@@ -83,8 +83,8 @@ flutter_gen:
 
 flutter_launcher_icons:
   #  image_path: "assets/images/icon-128x128.png"
-  image_path_android: "assets/images/icon-1024x1024.png"
-  image_path_ios: "assets/images/icon-1024x1024.png"
+  image_path_android: "assets/images/splash/splash.png"
+  image_path_ios: "assets/images/splash/splash.png"
   android: true # can specify file name here e.g. "ic_launcher"
   ios: true # can specify file name here e.g. "My-Launcher-Icon"
   # adaptive_icon_background: "assets/images/christmas-background.png" # only available for Android 8.0 devices and above
@@ -95,15 +95,15 @@ flutter_launcher_icons:
 
   web:
     generate: true
-    image_path: "assets/images/icon-1024x1024.png"
+    image_path: "assets/images/splash/splash.png"
     # background_color: "#hexcode"
     # theme_color: "#hexcode"
 
   windows:
     generate: true
-    image_path: "assets/images/icon-1024x1024.png"
+    image_path: "assets/images/splash/splash.png"
     icon_size: 48 # min:48, max:256, default: 48
 
   macos:
     generate: true
-    image_path: "assets/images/icon-1024x1024.png"
+    image_path: "assets/images/splash/splash.png"

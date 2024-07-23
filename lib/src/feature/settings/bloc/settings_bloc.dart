@@ -1,10 +1,10 @@
 import 'dart:ui' show Locale;
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sizzle_starter/src/feature/app/model/app_theme.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/text_scale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_repository.dart';
+import 'package:money_accountant/src/feature/app/model/app_theme.dart';
+import 'package:money_accountant/src/feature/settings/data/locale_repository.dart';
+import 'package:money_accountant/src/feature/settings/data/text_scale_repository.dart';
+import 'package:money_accountant/src/feature/settings/data/theme_repository.dart';
 
 /// {@template settings_bloc}
 /// A [Bloc] that handles the settings.

@@ -1,4 +1,4 @@
-import 'package:sizzle_starter/src/core/utils/preferences_dao.dart';
+import 'package:money_accountant/src/core/utils/preferences_dao.dart';
 
 /// {@template text_scale_datasource}
 /// [TextScaleDatasource] is a data source that provides text scale data.

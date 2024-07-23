@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:drift/drift.dart';
 import 'package:drift/wasm.dart';
-import 'package:sizzle_starter/src/core/utils/refined_logger.dart';
+import 'package:money_accountant/src/core/utils/refined_logger.dart';
 
 /// {@macro db_executor}
 QueryExecutor createExecutor() => DatabaseConnection.delayed(

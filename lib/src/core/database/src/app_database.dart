@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:sizzle_starter/src/core/database/database.dart';
+import 'package:money_accountant/src/core/database/database.dart';
 
 part 'app_database.g.dart';
 

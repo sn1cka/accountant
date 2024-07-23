@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:sizzle_starter/src/core/rest_client/rest_client.dart';
+import 'package:money_accountant/src/core/rest_client/rest_client.dart';
 
 // coverage:ignore-start
 /// {@template rest_client_exception}

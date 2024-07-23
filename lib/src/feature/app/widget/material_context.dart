@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sizzle_starter/src/core/constant/localization/localization.dart';
-import 'package:sizzle_starter/src/feature/home/widget/home_screen.dart';
-import 'package:sizzle_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:money_accountant/src/core/constant/localization/localization.dart';
+import 'package:money_accountant/src/feature/home/widget/home_screen.dart';
+import 'package:money_accountant/src/feature/settings/widget/settings_scope.dart';
 
 /// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.

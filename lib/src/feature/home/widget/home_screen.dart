@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sizzle_starter/src/core/utils/layout/layout.dart';
-import 'package:sizzle_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:money_accountant/src/core/utils/layout/layout.dart';
+import 'package:money_accountant/src/feature/settings/widget/settings_scope.dart';
 
 /// {@template home_screen}
 /// HomeScreen is a simple screen that displays a grid of items.

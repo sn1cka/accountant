@@ -1,16 +1,16 @@
+import 'package:money_accountant/src/core/constant/config.dart';
+import 'package:money_accountant/src/core/utils/refined_logger.dart';
+import 'package:money_accountant/src/feature/app/logic/tracking_manager.dart';
+import 'package:money_accountant/src/feature/initialization/model/dependencies.dart';
+import 'package:money_accountant/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:money_accountant/src/feature/settings/data/locale_datasource.dart';
+import 'package:money_accountant/src/feature/settings/data/locale_repository.dart';
+import 'package:money_accountant/src/feature/settings/data/text_scale_datasource.dart';
+import 'package:money_accountant/src/feature/settings/data/text_scale_repository.dart';
+import 'package:money_accountant/src/feature/settings/data/theme_datasource.dart';
+import 'package:money_accountant/src/feature/settings/data/theme_mode_codec.dart';
+import 'package:money_accountant/src/feature/settings/data/theme_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sizzle_starter/src/core/constant/config.dart';
-import 'package:sizzle_starter/src/core/utils/refined_logger.dart';
-import 'package:sizzle_starter/src/feature/app/logic/tracking_manager.dart';
-import 'package:sizzle_starter/src/feature/initialization/model/dependencies.dart';
-import 'package:sizzle_starter/src/feature/settings/bloc/settings_bloc.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_datasource.dart';
-import 'package:sizzle_starter/src/feature/settings/data/locale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/text_scale_datasource.dart';
-import 'package:sizzle_starter/src/feature/settings/data/text_scale_repository.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_datasource.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_mode_codec.dart';
-import 'package:sizzle_starter/src/feature/settings/data/theme_repository.dart';
 
 /// {@template composition_root}
 /// A place where all dependencies are initialized.

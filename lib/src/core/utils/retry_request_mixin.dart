@@ -17,10 +17,11 @@ mixin class RetryRequestMixin {
       );
 
       newRequest.headers.addAll(oldRequest.headers);
-      newRequest.followRedirects = oldRequest.followRedirects;
-      newRequest.maxRedirects = oldRequest.maxRedirects;
-      newRequest.persistentConnection = oldRequest.persistentConnection;
-      newRequest.bodyBytes = oldRequest.bodyBytes;
+      newRequest
+        ..followRedirects = oldRequest.followRedirects
+        ..maxRedirects = oldRequest.maxRedirects
+        ..persistentConnection = oldRequest.persistentConnection
+        ..bodyBytes = oldRequest.bodyBytes;
 
       final response = await $client.send(newRequest);
       return response;
@@ -33,9 +34,9 @@ mixin class RetryRequestMixin {
       );
 
       newRequest.headers.addAll(oldRequest.headers);
-      newRequest.followRedirects = oldRequest.followRedirects;
-      newRequest.maxRedirects = oldRequest.maxRedirects;
-      newRequest.persistentConnection = oldRequest.persistentConnection;
+      newRequest..followRedirects = oldRequest.followRedirects
+      ..maxRedirects = oldRequest.maxRedirects
+      ..persistentConnection = oldRequest.persistentConnection;
 
       for (final field in oldRequest.fields.entries) {
         newRequest.fields[field.key] = field.value;

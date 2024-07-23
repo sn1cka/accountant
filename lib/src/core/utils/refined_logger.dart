@@ -201,18 +201,18 @@ class DefaultLogger extends RefinedLogger {
     final stackTrace = message.stackTrace;
     final error = message.error;
 
-    final buffer = StringBuffer();
-
-    buffer.write('$emoji $time [${level.name.toUpperCase()}] $content');
+    final buffer = StringBuffer()..write('$emoji $time [${level.name.toUpperCase()}] $content');
 
     if (error != null && wrappedMessage.printError) {
-      buffer.writeln();
-      buffer.write(error);
+      buffer
+        ..writeln()
+        ..write(error);
     }
 
     if (stackTrace != null && wrappedMessage.printStackTrace) {
-      buffer.writeln();
-      buffer.write(Trace.from(stackTrace).terse);
+      buffer
+        ..writeln()
+        ..write(Trace.from(stackTrace).terse);
     }
 
     return buffer.toString();

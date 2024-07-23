@@ -19,10 +19,7 @@ final class AppRunner {
 
   /// Start the initialization and in case of success run application
   Future<void> initializeAndRun() async {
-    final binding = WidgetsFlutterBinding.ensureInitialized();
-
-    // Preserve splash screen
-    binding.deferFirstFrame();
+    final binding = WidgetsFlutterBinding.ensureInitialized()..deferFirstFrame();
 
     // Override logging
     FlutterError.onError = logger.logFlutterError;
@@ -39,7 +36,7 @@ final class AppRunner {
         final result = await initializationProcessor.compose();
         // Attach this widget to the root of the tree.
         runApp(App(result: result));
-      } catch (e, stackTrace) {
+      } on Object catch (e, stackTrace) {
         logger.error('Initialization failed', error: e, stackTrace: stackTrace);
         runApp(
           InitializationFailedApp(

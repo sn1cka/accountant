@@ -47,19 +47,18 @@ final class AppTheme with Diagnosticable {
       case ThemeMode.dark:
         return darkTheme;
       case ThemeMode.system:
-        return PlatformDispatcher.instance.platformBrightness == Brightness.dark
-            ? darkTheme
-            : lightTheme;
+        return PlatformDispatcher.instance.platformBrightness == Brightness.dark ? darkTheme : lightTheme;
     }
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(ColorProperty('seed', seed));
-    properties.add(EnumProperty<ThemeMode>('type', mode));
-    properties.add(DiagnosticsProperty<ThemeData>('lightTheme', lightTheme));
-    properties.add(DiagnosticsProperty<ThemeData>('darkTheme', darkTheme));
+    properties
+      ..add(ColorProperty('seed', seed))
+      ..add(EnumProperty<ThemeMode>('type', mode))
+      ..add(DiagnosticsProperty<ThemeData>('lightTheme', lightTheme))
+      ..add(DiagnosticsProperty<ThemeData>('darkTheme', darkTheme));
   }
 
   @override

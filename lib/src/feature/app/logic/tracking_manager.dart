@@ -106,14 +106,14 @@ final class SentryTrackingManager extends ErrorTrackingManagerBase {
   @override
   Future<void> enableReporting() async {
     await SentryFlutter.init((options) {
-      options.dsn = sentryDsn;
-
-      // Set the sample rate to 10% of events.
-      options.tracesSampleRate = 0.10;
-      options.debug = kDebugMode;
-      options.environment = environment;
-      options.anrEnabled = true;
-      options.sendDefaultPii = true;
+      options
+        ..dsn = sentryDsn
+        ..debug = kDebugMode
+        ..environment = environment
+        ..anrEnabled = true
+        ..sendDefaultPii = true
+        // Set the sample rate to 10% of events.
+        ..tracesSampleRate = 0.10;
     });
     await super.enableReporting();
   }

@@ -23,9 +23,11 @@ final class LocaleDataSourceLocal extends PreferencesDao implements LocaleDataSo
   PreferencesEntry<String> get _languageCode => stringEntry(
         'settings.locale.languageCode',
       );
+
   PreferencesEntry<String> get _scriptCode => stringEntry(
         'settings.locale.scriptCode',
       );
+
   PreferencesEntry<String> get _countryCode => stringEntry(
         'settings.locale.countryCode',
       );

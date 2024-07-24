@@ -9,8 +9,7 @@ abstract base class PreferencesDao {
   final SharedPreferences _sharedPreferences;
 
   /// {@macro preferences_dao}
-  const PreferencesDao({required SharedPreferences sharedPreferences})
-      : _sharedPreferences = sharedPreferences;
+  const PreferencesDao({required SharedPreferences sharedPreferences}) : _sharedPreferences = sharedPreferences;
 
   /// Obtain [bool] entry from the preferences.
   PreferencesEntry<bool> boolEntry(String key) => TypedEntry<bool>(
@@ -37,8 +36,7 @@ abstract base class PreferencesDao {
       );
 
   /// Obtain [Iterable<String>] entry from the preferences.
-  PreferencesEntry<Iterable<String>> iterableStringEntry(String key) =>
-      TypedEntry<Iterable<String>>(
+  PreferencesEntry<Iterable<String>> iterableStringEntry(String key) => TypedEntry<Iterable<String>>(
         key: key,
         sharedPreferences: _sharedPreferences,
       );

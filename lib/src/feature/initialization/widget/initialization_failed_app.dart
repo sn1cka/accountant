@@ -67,10 +67,7 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
                 const SizedBox(height: 16),
                 Text(
                   '${widget.error}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(color: Theme.of(context).colorScheme.error),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).colorScheme.error),
                 ),
                 const SizedBox(height: 16),
                 Padding(

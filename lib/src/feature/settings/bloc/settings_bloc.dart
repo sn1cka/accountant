@@ -269,8 +269,7 @@ sealed class SettingsEvent {
   const factory SettingsEvent.updateLocale({required Locale locale}) = _UpdateLocaleSettingsEvent;
 
   /// Event to update the text scale.
-  const factory SettingsEvent.updateTextScale({required double textScale}) =
-      _UpdateTextScaleSettingsEvent;
+  const factory SettingsEvent.updateTextScale({required double textScale}) = _UpdateTextScaleSettingsEvent;
 }
 
 final class _UpdateThemeSettingsEvent extends SettingsEvent {

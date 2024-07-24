@@ -86,10 +86,8 @@ void main() {
             ),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenThrow(
           const RevokeTokenException(
             'Token is not valid and cannot be refreshed',
@@ -116,10 +114,8 @@ void main() {
 
         final request = http.Request('GET', Uri.parse('https://example.com'));
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenThrow(Exception());
 
         await authInterceptor.interceptRequest(request, mockRequestHandler);
@@ -139,10 +135,8 @@ void main() {
           token: const Token('access_token', 'refresh_token'),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenAnswer(
           (_) => Future.value(
             const Token('new_access_token', 'new_refresh_token'),
@@ -175,10 +169,8 @@ void main() {
           token: const Token('access token', 'refresh token'),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(false));
 
         final request = http.Request('GET', Uri.parse('https://example.com'));
 
@@ -251,10 +243,8 @@ void main() {
             ),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenThrow(
           const RevokeTokenException(
             'Token is not valid and cannot be refreshed',
@@ -288,10 +278,8 @@ void main() {
             ),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenThrow(Exception());
 
         await authInterceptor.interceptResponse(response, mockResponseHandler);
@@ -332,10 +320,8 @@ void main() {
           token: const Token('access token', 'refresh token'),
         );
 
-        when(mockAuthorizationClient.isAccessTokenValid(any))
-            .thenAnswer((_) => Future.value(false));
-        when(mockAuthorizationClient.isRefreshTokenValid(any))
-            .thenAnswer((_) => Future.value(true));
+        when(mockAuthorizationClient.isAccessTokenValid(any)).thenAnswer((_) => Future.value(false));
+        when(mockAuthorizationClient.isRefreshTokenValid(any)).thenAnswer((_) => Future.value(true));
         when(mockAuthorizationClient.refresh(any)).thenAnswer(
           (_) => Future.value(
             const Token('new_access_token', 'new_refresh_token'),

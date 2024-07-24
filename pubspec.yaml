@@ -74,12 +74,12 @@ flutter:
   generate: true
 
   assets:
-  # Add assets from the images directory to the application.
-  - assets/images/
+    # Add assets from the images directory to the application.
+    - assets/images/
 
 flutter_gen:
   output: lib/src/core/constant/generated
-  line_length: 80
+  line_length: 120
 
 flutter_launcher_icons:
   #  image_path: "assets/images/icon-128x128.png"

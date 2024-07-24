@@ -1,0 +1,54 @@
+import 'converters/datetime.dart';
+
+CREATE TABLE income_categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  icon INTEGER NOT NULL
+) as IncomeCategory;
+
+CREATE TABLE income_subcategories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  icon INTEGER NOT NULL,
+  income_category_id INTEGER NOT NULL REFERENCES income_categories(id)
+) as IncomeSubcategory;
+
+CREATE TABLE accounts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  amount REAL NOT NULL,
+  title TEXT NOT NULL,
+  icon INTEGER NOT NULL
+);
+
+CREATE TABLE expense_categories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  icon INTEGER NOT NULL
+) as ExpenseCategory;
+
+CREATE TABLE expense_subcategories (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  icon INTEGER NOT NULL,
+  expense_category_id INTEGER NOT NULL REFERENCES expense_categories(id)
+) as ExpenseSubcategory;
+
+CREATE TABLE incomes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  amount REAL NOT NULL,
+  income_category_id INTEGER NOT NULL REFERENCES income_categories(id),
+  income_subcategory_id INTEGER REFERENCES income_subcategories(id),
+  accounts_id INTEGER NOT NULL REFERENCES accounts(id),
+  date INTEGER NOT NULL MAPPED BY `const DateTimeConverter()`,
+  description TEXT
+);
+
+CREATE TABLE expenses (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  amount REAL NOT NULL,
+  accounts_id INTEGER NOT NULL REFERENCES accounts(id),
+  expense_category_id INTEGER NOT NULL REFERENCES expense_categories(id),
+  expense_subcategory_id INTEGER REFERENCES expense_subcategories(id),
+  date INTEGER NOT NULL MAPPED BY `const DateTimeConverter()`,
+  description TEXT
+);

@@ -15,5 +15,9 @@
     "locales": "Locales",
     "@locales": {
       "description": "Locales for the application"
-    }
-  }
+    },
+    "color": "Color",
+    "complete": "Complete",
+    "icon": "Icon",
+    "select_icon": "Select the icon"
+}

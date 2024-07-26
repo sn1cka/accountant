@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money_accountant/src/core/constant/localization/localization.dart';
 import 'package:money_accountant/src/feature/category_edit/edit_category_screen.dart';
+import 'package:money_accountant/src/feature/dashboard/dashboard_screen.dart';
 import 'package:money_accountant/src/feature/settings/widget/settings_scope.dart';
 
 /// {@template material_context}
@@ -31,7 +32,7 @@ class MaterialContext extends StatelessWidget {
       localizationsDelegates: Localization.localizationDelegates,
       supportedLocales: Localization.supportedLocales,
       locale: locale,
-      home: const CreateCategoryScreen(),
+      home: const DashboardScreen(),
       builder: (context, child) => MediaQuery(
         key: _globalKey,
         data: mediaQueryData.copyWith(

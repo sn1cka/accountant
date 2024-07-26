@@ -1,4 +1,5 @@
 import 'package:money_accountant/src/feature/app/logic/tracking_manager.dart';
+import 'package:money_accountant/src/feature/dashboard/dashboard_bloc.dart';
 import 'package:money_accountant/src/feature/initialization/logic/composition_root.dart';
 import 'package:money_accountant/src/feature/settings/bloc/settings_bloc.dart';
 
@@ -12,9 +13,12 @@ import 'package:money_accountant/src/feature/settings/bloc/settings_bloc.dart';
 base class Dependencies {
   /// {@macro dependencies}
   const Dependencies({
+    required this.accountantBloc,
     required this.settingsBloc,
     required this.errorTrackingManager,
   });
+
+  final AccountantBloc accountantBloc;
 
   /// [SettingsBloc] instance, used to manage theme and locale.
   final SettingsBloc settingsBloc;

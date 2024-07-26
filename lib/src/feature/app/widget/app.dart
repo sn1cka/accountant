@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_accountant/src/feature/app/widget/material_context.dart';
+import 'package:money_accountant/src/feature/dashboard/dashboard_bloc.dart';
 import 'package:money_accountant/src/feature/initialization/logic/composition_root.dart';
 import 'package:money_accountant/src/feature/initialization/model/dependencies.dart';
 import 'package:money_accountant/src/feature/initialization/widget/dependencies_scope.dart';
@@ -28,7 +30,10 @@ class App extends StatelessWidget {
           dependencies: result.dependencies,
           child: SettingsScope(
             settingsBloc: result.dependencies.settingsBloc,
-            child: const MaterialContext(),
+            child: BlocProvider<AccountantBloc>.value(
+              value: result.dependencies.accountantBloc,
+              child: const MaterialContext(),
+            ),
           ),
         ),
       );

@@ -1,6 +1,9 @@
+import 'package:drift/drift.dart';
 import 'package:money_accountant/src/core/constant/config.dart';
+import 'package:money_accountant/src/core/database/database.dart';
 import 'package:money_accountant/src/core/utils/refined_logger.dart';
 import 'package:money_accountant/src/feature/app/logic/tracking_manager.dart';
+import 'package:money_accountant/src/feature/dashboard/dashboard_bloc.dart';
 import 'package:money_accountant/src/feature/initialization/model/dependencies.dart';
 import 'package:money_accountant/src/feature/settings/bloc/settings_bloc.dart';
 import 'package:money_accountant/src/feature/settings/data/locale_datasource.dart';
@@ -53,11 +56,15 @@ final class CompositionRoot {
   Future<Dependencies> _initDependencies() async {
     final errorTrackingManager = await _initErrorTrackingManager();
     final sharedPreferences = await SharedPreferences.getInstance();
+    final appDataBse = AppDatabase();
+
     final settingsBloc = await _initSettingsBloc(sharedPreferences);
+    final accountantBloc = await _initAccountantBloc(appDataBse);
 
     return Dependencies(
       settingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
+      accountantBloc: accountantBloc,
     );
   }
 
@@ -91,9 +98,8 @@ final class CompositionRoot {
       textScaleDataSource: TextScaleDatasourceLocal(sharedPreferences: prefs),
     );
 
-    final localeFuture = localeRepository.getLocale();
+    final locale = await localeRepository.getLocale();
     final theme = await themeRepository.getTheme();
-    final locale = await localeFuture;
     final textScale = await textScaleRepository.getScale();
 
     final initialState = SettingsState.idle(
@@ -109,5 +115,22 @@ final class CompositionRoot {
       initialState: initialState,
     );
     return settingsBloc;
+  }
+
+  Future<AccountantBloc> _initAccountantBloc(AppDatabase appDataBase) async {
+    final expenses = await appDataBase.expenseCategories.all().get();
+    final incomes = await appDataBase.incomeCategories.all().get();
+    final accounts = await appDataBase.accounts.all().get();
+    final totalIncome = await appDataBase.getMonthlySumFromTable(appDataBase.incomes);
+    final totalExpense = await appDataBase.getMonthlySumFromTable(appDataBase.expenses);
+
+    final initialState = AccountantState.idle(
+      expenseCategories: expenses,
+      incomeCategories: incomes,
+      accounts: accounts,
+      totalIncome: totalIncome,
+      totalExpense: totalExpense,
+    );
+    return AccountantBloc(dataBase: appDataBase, initialState: initialState);
   }
 }

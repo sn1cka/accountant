@@ -1,23 +1,28 @@
 {
-    "@@locale": "en",
-    "appTitle": "money_accountant",
-    "@appTitle": {
-      "description": "The title of the application"
-    },
-    "custom_colors": "Custom Colors",
-    "@custom_colors": {
-      "description": "Custom colors for the application"
-    },
-    "default_themes": "Default Themes",
-    "@default_themes": {
-      "description": "Default themes for the application"
-    },
-    "locales": "Locales",
-    "@locales": {
-      "description": "Locales for the application"
-    },
-    "color": "Color",
-    "complete": "Complete",
-    "icon": "Icon",
-    "select_icon": "Select the icon"
+  "@@locale": "en",
+  "appTitle": "money_accountant",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "custom_colors": "Custom Colors",
+  "@custom_colors": {
+    "description": "Custom colors for the application"
+  },
+  "default_themes": "Default Themes",
+  "@default_themes": {
+    "description": "Default themes for the application"
+  },
+  "locales": "Locales",
+  "@locales": {
+    "description": "Locales for the application"
+  },
+  "color": "Color",
+  "icon": "Icon",
+  "select_icon": "Select the icon",
+  "account": "Account",
+  "done": "Done",
+  "category_title": "Title",
+  "balance": "Balance",
+  "error_title_empty": "TItle can't be empty",
+  "error_wrong_amount": "Worng amount entered"
 }

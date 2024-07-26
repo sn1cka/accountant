@@ -1,37 +1,40 @@
-import 'converters/datetime.dart';
+import 'converters/datetime_converter.dart';
 
 CREATE TABLE income_categories (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT NOT NULL,
-  icon INTEGER NOT NULL
-) as IncomeCategory;
+  title TEXT NOT NULL CHECK(length(title) BETWEEN 1 AND 30),
+  icon_index INTEGER NOT NULL,
+  color_index INTEGER NOT NULL
+);
 
 CREATE TABLE income_subcategories (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT NOT NULL,
-  icon INTEGER NOT NULL,
+  title TEXT NOT NULL CHECK(length(title) BETWEEN 1 AND 30),
+  icon_index INTEGER NOT NULL,
+  color_index INTEGER NOT NULL,
   income_category_id INTEGER NOT NULL REFERENCES income_categories(id)
-) as IncomeSubcategory;
+);
 
 CREATE TABLE accounts (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   amount REAL NOT NULL,
-  title TEXT NOT NULL,
-  icon INTEGER NOT NULL
+  title TEXT NOT NULL CHECK(length(title) BETWEEN 1 AND 30),
+  icon_index INTEGER NOT NULL
 );
 
 CREATE TABLE expense_categories (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT NOT NULL,
-  icon INTEGER NOT NULL
-) as ExpenseCategory;
+  title TEXT NOT NULL CHECK(length(title) BETWEEN 1 AND 30),
+  icon_index INTEGER NOT NULL
+);
 
 CREATE TABLE expense_subcategories (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  title TEXT NOT NULL,
-  icon INTEGER NOT NULL,
+  title TEXT NOT NULL CHECK(length(title) BETWEEN 1 AND 30),
+  icon_index INTEGER NOT NULL,
+  color_index INTEGER NOT NULL,
   expense_category_id INTEGER NOT NULL REFERENCES expense_categories(id)
-) as ExpenseSubcategory;
+);
 
 CREATE TABLE incomes (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +43,7 @@ CREATE TABLE incomes (
   income_subcategory_id INTEGER REFERENCES income_subcategories(id),
   accounts_id INTEGER NOT NULL REFERENCES accounts(id),
   date INTEGER NOT NULL MAPPED BY `const DateTimeConverter()`,
-  description TEXT
+  description TEXT CHECK(length(description) <= 140)
 );
 
 CREATE TABLE expenses (
@@ -50,5 +53,5 @@ CREATE TABLE expenses (
   expense_category_id INTEGER NOT NULL REFERENCES expense_categories(id),
   expense_subcategory_id INTEGER REFERENCES expense_subcategories(id),
   date INTEGER NOT NULL MAPPED BY `const DateTimeConverter()`,
-  description TEXT
+  description TEXT CHECK(length(description) <= 140)
 );

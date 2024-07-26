@@ -1,11 +1,16 @@
 {
-    "@@locale": "ru",
-    "appTitle": "money_accountant",
-    "custom_colors": "Особые цвета приложения",
-    "default_themes": "Стандартные темы",
-    "locales": "Локализации",
-    "color": "Цвет",
-    "complete": "Готово",
-    "icon": "Иконка",
-    "select_icon": "Выберите иконку"
+  "@@locale": "ru",
+  "appTitle": "money_accountant",
+  "custom_colors": "Особые цвета приложения",
+  "default_themes": "Стандартные темы",
+  "locales": "Локализации",
+  "color": "Цвет",
+  "icon": "Иконка",
+  "select_icon": "Выберите иконку",
+  "account": "Счёт",
+  "done": "Готово",
+  "category_title": "Заголовок",
+  "balance": "Баланс",
+  "error_title_empty": "Заголовок не может быть пустым",
+  "error_wrong_amount": "Введена неверная сумма"
 }

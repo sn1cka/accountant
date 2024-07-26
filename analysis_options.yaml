@@ -1,9 +1,9 @@
 include: package:sizzle_lints/sizzle_lints.yaml
 
 analyzer:
-  exclude: 
+  exclude:
     - "lib/src/core/localization/generated/**"
-    -
+
 linter:
   rules:
     avoid_catches_without_on_clauses: true

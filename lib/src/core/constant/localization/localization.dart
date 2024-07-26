@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+/// Util for short localization
+typedef S = Localization;
+
 /// {@template localization}
 /// Localization class which is used to localize app.
 /// This class provides handy methods and tools.

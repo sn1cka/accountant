@@ -15,12 +15,15 @@ class AppDatabase extends _$AppDatabase {
   @override
   int get schemaVersion => 1;
 
-  Future<double> getMonthlySumFromTable(TableInfo table) async {
-    final now = DateTime.now();
+  /// returns sum of amount in transactions like expense or income
+  Future<double> getMonthlySumFromTable({
+    required TableInfo<Table, dynamic> table,
+    required DateTime month,
+  }) async {
     const amount = 'total_amount';
 
-    final startOfMonthMillis = DateTime(now.year, now.month).millisecondsSinceEpoch;
-    final endOfMonthMillis = DateTime(now.year, now.month + 1).millisecondsSinceEpoch;
+    final startOfMonthMillis = DateTime(month.year, month.month).millisecondsSinceEpoch;
+    final endOfMonthMillis = DateTime(month.year, month.month + 1).millisecondsSinceEpoch;
 
     final result = await customSelect(
       'SELECT SUM(amount) AS $amount FROM ${table.actualTableName} WHERE date BETWEEN ? AND ?',

@@ -40,9 +40,15 @@ class AccountantBloc extends Bloc<AccountantEvent, AccountantState> {
   late final StreamSubscription<List<ExpenseCategory>> _expenseCategoriesStream;
   late final StreamSubscription<List<Account>> _accountsStream;
 
-  AccountantBloc({required AppDatabase dataBase, required AccountantState initialState})
+  AccountantBloc({required AppDatabase dataBase})
       : _db = dataBase,
-        super(initialState) {
+        super(const AccountantState.idle(
+          expenseCategories: [],
+          incomeCategories: [],
+          accounts: [],
+          totalIncome: 0,
+          totalExpense: 0,
+        )) {
     _initListeners();
     on<_DatabaseChanged>(_databaseChanged);
   }
@@ -56,28 +62,39 @@ class AccountantBloc extends Bloc<AccountantEvent, AccountantState> {
   }
 
   Future<void> _initListeners() async {
-    _incomeCategoriesStream = _db.incomeCategories
-        .all()
-        .watch()
-        .listen((incomes) => add(AccountantEvent._databaseChanged(incomeCategories: incomes)));
+    _incomeCategoriesStream = _db.incomeCategories.all().watch().listen(
+          (incomes) => add(
+            AccountantEvent._databaseChanged(
+              incomeCategories: incomes,
+            ),
+          ),
+        );
 
-    _expenseCategoriesStream = _db.expenseCategories
-        .all()
-        .watch()
-        .listen((expenses) => add(AccountantEvent._databaseChanged(expenseCategories: expenses)));
+    _expenseCategoriesStream = _db.expenseCategories.all().watch().listen(
+          (expenses) => add(
+            AccountantEvent._databaseChanged(expenseCategories: expenses),
+          ),
+        );
 
-    _accountsStream =
-        _db.accounts.all().watch().listen((accounts) => add(AccountantEvent._databaseChanged(accounts: accounts)));
+    _accountsStream = _db.accounts.all().watch().listen(
+          (accounts) => add(
+            AccountantEvent._databaseChanged(accounts: accounts),
+          ),
+        );
   }
 
   Future<void> _databaseChanged(_DatabaseChanged event, Emitter<AccountantState> emit) async {
+    final month = DateTime.now();
+    final totalIncome = event.totalIncome ?? await _db.getMonthlySumFromTable(table: _db.incomes, month: month);
+    final totalExpense = event.totalExpense ?? await _db.getMonthlySumFromTable(table: _db.expenses, month: month);
+
     emit(
       state.copyWith(
         incomeCategories: event.incomeCategories ?? state.incomeCategories,
         accounts: event.accounts ?? state.accounts,
         expenseCategories: event.expenseCategories ?? state.expenseCategories,
-        totalExpense: event.totalExpense ?? state.totalExpense,
-        totalIncome: event.totalIncome ?? state.totalIncome,
+        totalExpense: totalExpense,
+        totalIncome: totalIncome,
       ),
     );
   }

@@ -1,4 +1,3 @@
-import 'package:drift/drift.dart';
 import 'package:money_accountant/src/core/constant/config.dart';
 import 'package:money_accountant/src/core/database/database.dart';
 import 'package:money_accountant/src/core/utils/refined_logger.dart';
@@ -117,20 +116,5 @@ final class CompositionRoot {
     return settingsBloc;
   }
 
-  Future<AccountantBloc> _initAccountantBloc(AppDatabase appDataBase) async {
-    final expenses = await appDataBase.expenseCategories.all().get();
-    final incomes = await appDataBase.incomeCategories.all().get();
-    final accounts = await appDataBase.accounts.all().get();
-    final totalIncome = await appDataBase.getMonthlySumFromTable(appDataBase.incomes);
-    final totalExpense = await appDataBase.getMonthlySumFromTable(appDataBase.expenses);
-
-    final initialState = AccountantState.idle(
-      expenseCategories: expenses,
-      incomeCategories: incomes,
-      accounts: accounts,
-      totalIncome: totalIncome,
-      totalExpense: totalExpense,
-    );
-    return AccountantBloc(dataBase: appDataBase, initialState: initialState);
-  }
+  Future<AccountantBloc> _initAccountantBloc(AppDatabase appDataBase) async => AccountantBloc(dataBase: appDataBase);
 }

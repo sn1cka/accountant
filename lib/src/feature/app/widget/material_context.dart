@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:money_accountant/src/core/constant/localization/localization.dart';
-import 'package:money_accountant/src/feature/category_edit/edit_category_screen.dart';
 import 'package:money_accountant/src/feature/dashboard/dashboard_screen.dart';
 import 'package:money_accountant/src/feature/settings/widget/settings_scope.dart';
 

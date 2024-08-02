@@ -34,7 +34,7 @@ final class AppTheme with Diagnosticable {
 
   /// The default [AppTheme].
   static final defaultTheme = AppTheme(
-    mode: ThemeMode.system,
+    mode: ThemeMode.dark,
     seed: Colors.blue,
   );
 

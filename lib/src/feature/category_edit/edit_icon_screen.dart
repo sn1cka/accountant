@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:money_accountant/src/core/constant/item_colors.dart';
 import 'package:money_accountant/src/core/constant/item_icons.dart';
 import 'package:money_accountant/src/core/constant/localization/localization.dart';
-import 'package:money_accountant/src/core/ui_kit/icon_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 const _colorItemSize = 32;
@@ -70,7 +69,7 @@ class _IconEditScreenState extends State<IconEditScreen> {
         appBar: AppBar(
           title: Text(S.of(context).select_icon),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Row(
           children: [
             Expanded(
@@ -96,7 +95,7 @@ class _IconEditScreenState extends State<IconEditScreen> {
                 const SizedBox(height: 16),
                 Column(
                   children: [
-                    CategoryCard(
+                    _CategoryCard(
                       icon: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Icon(
@@ -163,7 +162,7 @@ class _IconEditScreenState extends State<IconEditScreen> {
                     itemCount: CategoryIcons.length,
                     itemBuilder: (context, index) {
                       final icon = CategoryIcons.icons[index];
-                      return CategoryCard(
+                      return _CategoryCard(
                         onTap: () => setState(() {
                           _icon = icon;
                         }),
@@ -174,7 +173,7 @@ class _IconEditScreenState extends State<IconEditScreen> {
                     padding: const EdgeInsets.only(
                       left: _horizontalPadding,
                       right: _horizontalPadding,
-                      bottom: kBottomNavigationBarHeight + kFloatingActionButtonMargin,
+                      bottom: kBottomNavigationBarHeight + kFloatingActionButtonMargin + kToolbarHeight,
                     ),
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 7,
@@ -236,7 +235,7 @@ class _ColorPickerState extends State<_ColorPicker> {
                   return CircleAvatar(
                     key: isExtraItems ? null : GlobalObjectKey(color),
                     backgroundColor: Colors.transparent,
-                    child: CategoryCard(
+                    child: _CategoryCard(
                       onTap: isExtraItems
                           ? null
                           : () {
@@ -256,5 +255,29 @@ class _ColorPickerState extends State<_ColorPicker> {
             ),
           );
         },
+      );
+}
+
+class _CategoryCard extends StatelessWidget {
+  const _CategoryCard({
+    this.icon,
+    this.color,
+    this.onTap,
+  });
+
+  final Widget? icon;
+  final Color? color;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) => TextButton(
+        style: TextButton.styleFrom(
+          shape: const CircleBorder(),
+          backgroundColor: color,
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(4),
+        ),
+        onPressed: onTap,
+        child: icon ?? const SizedBox(),
       );
 }

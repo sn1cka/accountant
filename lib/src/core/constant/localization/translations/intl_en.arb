@@ -24,5 +24,10 @@
   "category_title": "Title",
   "balance": "Balance",
   "error_title_empty": "TItle can't be empty",
-  "error_wrong_amount": "Worng amount entered"
+  "error_wrong_amount": "Worng amount entered",
+  "new_category": "New category",
+  "category": "Category",
+  "sure_delete": "Are you sure you want to delete this category?",
+  "cancel": "Cancel",
+  "delete": "Delete"
 }

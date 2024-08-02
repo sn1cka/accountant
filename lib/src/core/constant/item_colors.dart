@@ -9,7 +9,7 @@ abstract final class CategoryColors {
 
   /// Returns [Color] predefined in list
   static Color getIndexed(int index) {
-    assert(index >= 0 && index < length, 'Color index in getIndexed is $index and out of range 0..${length-1}');
+    assert(index >= 0 && index < length, 'Color index in getIndexed is $index and out of range 0..${length - 1}');
     return colors[index];
   }
 
@@ -18,10 +18,10 @@ abstract final class CategoryColors {
 
   /// The first index of element in this list.
   /// return -1 if value not found
-  static int indexOf(Color icon) => colors.indexOf(icon);
+  static int indexOf(Color color) => colors.indexOf(color);
 
   /// All available colors for ExpenseCategory and IncomeCategory
-  static const colors = [
+  static const List<Color> colors = [
     Colors.red,
     Colors.pink,
     Colors.purple,
@@ -33,16 +33,15 @@ abstract final class CategoryColors {
     Colors.teal,
     Colors.green,
     Colors.lightGreen,
-    Colors.lime,
-    Colors.yellow,
-    Colors.amber,
     Colors.orange,
     Colors.deepOrange,
     Colors.brown,
     Colors.grey,
     Colors.blueGrey,
-    Colors.black,
-    Colors.white,
     Colors.indigoAccent,
+    Colors.blueAccent,
+    Colors.orangeAccent,
+    Colors.pinkAccent,
+    Colors.purpleAccent,
   ];
 }

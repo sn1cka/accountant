@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:money_accountant/src/core/utils/extensions/string_extension.dart';
 import 'package:money_accountant/src/core/utils/refined_logger.dart';
 
 /// [BlocObserver] which logs all bloc state changes, errors and events.
@@ -20,7 +19,7 @@ class AppBlocObserver extends BlocObserver {
       ..writeln('Event: ${transition.event.runtimeType}')
       ..writeln('Transition: ${transition.currentState.runtimeType} => '
           '${transition.nextState.runtimeType}')
-      ..write('New State: ${transition.nextState.toString().limit(100)}');
+      ..write('New State: ${transition.nextState}');
 
     logger.info(logMessage.toString());
     super.onTransition(bloc, transition);
@@ -31,7 +30,7 @@ class AppBlocObserver extends BlocObserver {
     final logMessage = StringBuffer()
       ..writeln('Bloc: ${bloc.runtimeType}')
       ..writeln('Event: ${event.runtimeType}')
-      ..write('Details: ${event.toString().limit(200)}');
+      ..write('Details: $event');
 
     logger.info(logMessage.toString());
     super.onEvent(bloc, event);

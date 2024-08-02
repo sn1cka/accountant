@@ -12,5 +12,10 @@
   "category_title": "Заголовок",
   "balance": "Баланс",
   "error_title_empty": "Заголовок не может быть пустым",
-  "error_wrong_amount": "Введена неверная сумма"
+  "error_wrong_amount": "Введена неверная сумма",
+  "new_category": "Новая категория",
+  "category": "Категория",
+  "sure_delete": "Вы уверены что хотите удалить эту категорию?",
+  "cancel": "Отменить",
+  "delete": "Удалить"
 }

@@ -65,7 +65,7 @@ dev_dependencies:
 
   # Utils
   flutter_gen_runner: ^5.3.2
-  flutter_launcher_icons: ^0.13.1
+  flutter_launcher_icons: ^0.14.0
   flutter_native_splash: ^2.3.5
 
   # Codegen
